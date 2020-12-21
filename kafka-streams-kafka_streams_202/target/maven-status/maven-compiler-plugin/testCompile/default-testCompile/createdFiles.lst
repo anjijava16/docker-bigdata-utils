@@ -1,0 +1,4 @@
+wiadrodanych\streams\SerDeJsonStreamTest.class
+wiadrodanych\streams\ZtmStreamTest.class
+wiadrodanych\streams\models\serdes\InputZtmRecordSerDeTest.class
+wiadrodanych\streams\LowercaseStreamTest.class

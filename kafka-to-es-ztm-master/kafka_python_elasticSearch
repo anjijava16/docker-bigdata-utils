@@ -1,0 +1,18 @@
+
+This is the second approach to Visualize buses in Elasticsearch and Kibana . This time I will use a program I wrote earlier in Kafka Streams to calculate the speed and orientation of the buses, and then I will throw Logstash from Apache Kafka to Elasticsearch.
+
+Data Flow
+Let's explain what the data flow looks like in this scenario:
+
+The Python script pulls data from the API and uploads it to Apache Kafka
+The Kafka Streams app processes records, adds speed, rotation and distance, and then saves to the next topic
+Logstash pulls records from topic, puts fields (lat, lon ) into the location object so Elasticsearch can index it as geo_point (I forgot about it in Kafka Streams). Uploads records to Elasticsearch
+Elasticsearch indexes records using ILM -a
+We watch what is happening on the map in Kibana.
+
+
+https://wiadrodanych.pl/bazy-danych/elasticsearch/wizualizacja-autobusow-w-elasticsearch-i-kibana-podejscie-strumieniowe-kafka-streams-logstash/
+Ex: https://github.com/zorteran/wiadro-danych-kafka-to-es-ztm
+
+https://wiadrodanych.pl/big-data/apache-kafka/kafka-streams/kafka-streams-201-obliczanie-predkosci-processor-api-keyvaluestore/
+Ex: https://github.com/zorteran/wiadro-danych-kafka-streams/tree/kafka_streams_202
